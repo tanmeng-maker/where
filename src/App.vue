@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <!-- keep-alive 将数据缓存下来 -->
+    <!-- Detail页面不做缓存 exclude="Detail" -->
+    <keep-alive exclude="Detail">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
-</style>
+<script>
+export default {
+  name: 'App'
+}
+</script>
+
